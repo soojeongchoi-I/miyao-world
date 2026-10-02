@@ -1,33 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Inter } from "next/font/google";
+import { Caveat, Lato, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import Sidebar from "@/components/layout/Sidebar";
+import MobileHeader from "@/components/layout/MobileHeader";
+import Footer from "@/components/layout/Footer";
+import ScrollNav from "@/components/layout/ScrollNav";
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  weight: ["300", "400", "700"],
+});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500"],
 });
 
-const inter = Inter({
+const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-caveat",
+  weight: ["400", "600"],
 });
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 export const metadata: Metadata = {
-  title: "MIYAO-WORLD",
-  description: "MIYAO-WORLD Health Log",
+  title: "MIYAO WORLD",
+  description: "Miyao World official store",
 };
 
 export default function RootLayout({
@@ -36,10 +35,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="ko"
+      className={`${lato.variable} ${playfair.variable} ${caveat.variable}`}
+    >
       <body className="antialiased">
-        <Header />
-        {children}
+        <MobileHeader />
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <div className="min-w-0 flex-1 px-[20px] pt-[20px] lg:pl-0 lg:pr-[var(--content-gutter)] lg:pt-[var(--content-top)]">
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </div>
+        <ScrollNav />
       </body>
     </html>
   );

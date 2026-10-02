@@ -43,6 +43,45 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Miyao World design tokens ─────────────────────────────── */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-hairline: var(--hairline);
+  --color-placeholder: var(--placeholder);
+  --color-accent-blue: var(--accent-blue);
+
+  --font-sans: var(--font-lato), "Apple SD Gothic Neo", sans-serif;
+  --font-serif: var(--font-playfair), "Times New Roman", serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+/* ── Miyao World theme ───────────────────────────────────────── */
+:root {
+  /* layout */
+  --sidebar-width: 610px;
+  --sidebar-gutter: 48px;
+  --sidebar-column: 164px;
+  --content-gutter: 47px;
+  --content-top: 25px;
+
+  /* palette */
+  --ink: #1a1a1a;
+  --ink-soft: #333333;
+  --ink-muted: #8a8a8a;
+  --ink-faint: #b0b0b0;
+  --hairline: #d9d9d9;
+  --placeholder: #9b9b9b;
+  --accent-blue: #1a6bff;
+
+  /* type scale */
+  --text-nav: 13px;
+  --text-subnav: 12px;
+  --text-util: 11.5px;
+  --text-foot: 12px;
+  --tracking-wide: 0.05em;
 }
 
 /* Netflix Light Mode */
@@ -131,6 +170,14 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   /**
