@@ -62,7 +62,7 @@
 :root {
   /* layout */
   --sidebar-width: 610px;
-  --sidebar-gutter: 48px;
+  --sidebar-gutter: 72px;
   --sidebar-column: 164px;
   --content-gutter: 47px;
   --content-top: 25px;
